@@ -25,6 +25,13 @@ from instabot import Bot
 from PIL import Image
 import threading
 
+# print license details
+print("InstaditBot  Copyright (C) 2021  Merlin Glander "
+      "<merlinglander@vogelhosting.de A7CF F31A 48DF F3C6 0D19  C131 DC46 0EB0 3DBE 76C4> \n"
+      " This program comes with ABSOLUTELY NO WARRANTY \n"
+      " This is free software, and you are welcome to redistribute it \n"
+      " under certain conditions")
+
 # delete config folder
 if os.path.isdir("./config"):
     shutil.rmtree("./config")
