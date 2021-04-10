@@ -1,0 +1,4 @@
+wget~=3.2
+requests~=2.24.0
+instabot~=0.117.0
+Pillow~=8.0.1
