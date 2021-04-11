@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='InstaditBot',
-    version='4.2.0.dev1',
+    version='4.2.0.a1.dev2',
     packages=[''],
     url='',
     license='GPLv3',
