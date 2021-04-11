@@ -36,8 +36,8 @@ print("InstaditBot  Copyright (C) 2021  Merlin Glander "
 if os.path.isdir("./config"):
     shutil.rmtree("./config")
 
-# load config dictionary
 
+# load config dictionary
 if os.path.isfile("dictionary.txt"):
     configFileR = open("dictionary.txt", "r")
     config = json.load(configFileR)
