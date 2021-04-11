@@ -122,6 +122,7 @@ def post(username, password, reddditmemelist, number):
             print(username + ": Photo is not a .jpg, skipping!")
 
 
+# start threading with arguments
 for i in config:
     currentsub = config[i]["subreddit"]
     currentusername = config[i]["username"]

@@ -80,14 +80,35 @@ def make_square(im, min_size=256, fill_color=(0, 0, 0, 0)):
     return new_im
 
 
+# download memelists
+def getmemelist(number):
+    currentsub = config[number]["subreddit"]
+    downloadlink = "https://www.reddit.com/r/" + currentsub + "/hot.json?limit=99"
+    memelist = r.get(downloadlink, headers={"User-Agent": "CIA-Datendiebstahl"}).content
+    with open(currentsub + ".json", "w") as newjson:
+        memelist = memelist.decode('utf-8')
+        newjson.write(str(memelist))
+    with open(currentsub + ".json", "r") as file:
+        redditmemelist = json.load(file)
+    return redditmemelist
+
+
 # log in to instagram
-def post(username, password, redditmemelist, number):
+def post(username, password, number):  # sourcery no-metrics
     print("starting Thread " + str(number))
     bot = Bot()
     bot.login(username=username, password=password, is_threaded=True)
+    # call the download function
+    redditmemelist = getmemelist(number)
     j = len(redditmemelist["data"]["children"])
-    with open(str(username) + "_posted.txt", "r") as postedlistfile:
-        postedlist = postedlistfile.read().split('\n')
+    # load posted files
+    if os.path.isfile(str(username) + "_posted.txt"):
+        with open(str(username) + "_posted.txt", "r") as postedlistfile:
+            postedlist = postedlistfile.read().split('\n')
+    else:
+        createnewposted = open(str(username) + "_posted.txt", "w")
+        createnewposted.close()
+    # load hashtags
     with open(username + "_hashtags.txt", "r") as hashtaglistFile:
         hashtaglist = hashtaglistFile.read().split("\n")
     for memelisti in range(j):
@@ -142,19 +163,10 @@ def post(username, password, redditmemelist, number):
             print(username + ": Photo is not a .jpg, skipping!")
 
 
+# start threading with arguments
 for i in config:
-    currentsub = config[i]["subreddit"]
     currentusername = config[i]["username"]
     currentpassword = config[i]["password"]
-    downloadlink = "https://www.reddit.com/r/" + currentsub + "/hot.json?limit=99"
-    memelist = r.get(downloadlink, headers={"User-Agent": "CIA-Datendiebstahl"}).content
-    newjson = open(currentsub + ".json", "w")
-    memelist = memelist.decode('utf-8')
-    newjson.write(str(memelist))
-    newjson.close()
-    file = open(currentsub + ".json", "r")
-    y = json.load(file)
-    file.close()
-    x = threading.Thread(target=post, args=(str(currentusername), str(currentpassword), y, i))
+    x = threading.Thread(target=post, args=(str(currentusername), str(currentpassword), i))
     time.sleep(2)
     x.start()
