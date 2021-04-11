@@ -128,13 +128,11 @@ for i in config:
     currentpassword = config[i]["password"]
     downloadlink = "https://www.reddit.com/r/" + currentsub + "/hot.json?limit=99"
     memeList = r.get(downloadlink, headers={"User-Agent": "CIA-Datendiebstahl"}).content
-    newjson = open(currentsub + ".json", "w")
-    memeList = memeList.decode('utf-8')
-    newjson.write(str(memeList))
-    newjson.close()
-    file = open(currentsub + ".json", "r")
-    y = json.load(file)
-    file.close()
+    with open(currentsub + ".json", "w") as newjson:
+        memeList = memeList.decode('utf-8')
+        newjson.write(str(memeList))
+    with open(currentsub + ".json", "r") as file:
+        y = json.load(file)
     x = threading.Thread(target=post, args=(str(currentusername), str(currentpassword), y, i))
     time.sleep(2)
     x.start()
