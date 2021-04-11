@@ -1,3 +1,5 @@
+[![Python package](https://github.com/FPVogel/InstaditBot/actions/workflows/python-package.yml/badge.svg)](https://github.com/FPVogel/InstaditBot/actions/workflows/python-package.yml)
+
 [![forthebadge](https://forthebadge.com/images/badges/0-percent-optimized.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/gluten-free.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/powered-by-coffee.svg)](https://forthebadge.com)
 
 [![GitHub license](https://img.shields.io/github/license/FPVogel/InstaditBot?style=for-the-badge&logo=appveyor)](https://github.com/FPVogel/InstaditBot/blob/main/LICENSE)
