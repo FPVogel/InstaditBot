@@ -51,6 +51,33 @@ else:
     configFileR.close()
 
 
+def createcaption(redditmemelist, hashtaglist, memelisti):
+    # get the description
+    hashtaglistcurrent = []
+    for _ in range(16):
+        randomhashtag = random.randint(0, len(hashtaglist) - 1)
+        hashtaglistcurrent.append(hashtaglist[randomhashtag])
+    return (
+        redditmemelist["data"]["children"][memelisti]["data"]["title"]
+        + "\n.\nWhy are you liking my memes but not following? \n.\n "
+        + hashtaglistcurrent[1]
+        + hashtaglistcurrent[2]
+        + hashtaglistcurrent[3]
+        + hashtaglistcurrent[4]
+        + hashtaglistcurrent[5]
+        + hashtaglistcurrent[6]
+        + hashtaglistcurrent[7]
+        + hashtaglistcurrent[8]
+        + hashtaglistcurrent[9]
+        + hashtaglistcurrent[10]
+        + hashtaglistcurrent[11]
+        + hashtaglistcurrent[12]
+        + hashtaglistcurrent[13]
+        + hashtaglistcurrent[14]
+        + hashtaglistcurrent[15]
+    )
+
+
 # make images squares
 def make_square(im, min_size=256, fill_color=(0, 0, 0, 0)):
     sizex, sizey = im.size
@@ -116,15 +143,7 @@ def post(username, password, number):  # sourcery no-metrics
                 for _ in range(16):
                     randomhashtag = random.randint(0, len(hashtaglist) - 1)
                     hashtaglistcurrent.append(hashtaglist[randomhashtag])
-                imagecaption = redditmemelist["data"]["children"][memelisti]["data"]["title"] \
-                    + "\n.\nWhy are you liking my memes but not following? \n.\n " + hashtaglistcurrent[1] \
-                    + hashtaglistcurrent[2] + hashtaglistcurrent[3] + hashtaglistcurrent[4] + \
-                    hashtaglistcurrent[5] \
-                    + hashtaglistcurrent[6] + hashtaglistcurrent[7] + hashtaglistcurrent[8] + \
-                    hashtaglistcurrent[9] \
-                    + hashtaglistcurrent[10] + hashtaglistcurrent[11] + hashtaglistcurrent[12] + \
-                    hashtaglistcurrent[13] \
-                    + hashtaglistcurrent[14] + hashtaglistcurrent[15]
+                imagecaption = createcaption(redditmemelist, hashtaglist, memelisti)
                 # post to instagram
                 delay = random.randint(900, 1800)
                 print(" \n Waiting for " + str(delay) + " seconds")
