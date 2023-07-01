@@ -1,5 +1,5 @@
 # InstaditBot: Bot that fetches top subreddit posts and posts to instagram
-#  Copyright (C) 2021  Merlin Glander <merlinglander@vogelhosting.de A7CF F31A 48DF F3C6 0D19  C131 DC46 0EB0 3DBE 76C4>
+#  Copyright (C) 2023  Merlin Glander <merlinglander@vogelhosting.de A7CF F31A 48DF F3C6 0D19  C131 DC46 0EB0 3DBE 76C4>
 #
 #  This program is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
