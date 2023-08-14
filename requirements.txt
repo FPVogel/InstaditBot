@@ -1,4 +1,4 @@
 wget~=3.2
 requests~=2.28.2
-instagrapi~=1.19.5
+instagrapi~=1.19.6
 Pillow~=9.5.0
